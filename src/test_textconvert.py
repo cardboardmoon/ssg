@@ -23,8 +23,10 @@ class TestTextNode(unittest.TestCase):
     #     print(HTMLNode.text_node_to_html_node(self.error_test))
 
     def test_convert2(self):
-        input_node = TextNode("The penultimate word is **bold** right?", "text")
-        print(HTMLNode.split_nodes_delimiter([input_node], "**", "bold"))
+        node = TextNode("The penultimate word is **bold** right?", "text")
+        new_nodes = HTMLNode.split_nodes_delimiter(node, "**", "bold")
+        expected = [TextNode("The penultimate word is ", "text",), TextNode("bold", "bold"), TextNode(" right?", "text")]
+        return self.assertEqual(new_nodes, expected)
 
 if __name__ == "__main__":
     unittest.main()
