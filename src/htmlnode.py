@@ -33,9 +33,6 @@ class HTMLNode:
             case other:
                 raise Exception("Text Node type is not valid.")
 
-    def split_nodes_delimiter(old_nodes, delimiter, text_type):
-        return old_nodes.text.split(delimiter)
-
     def __repr__(self):
         return f"tag:{self.tag} value:{self.value} children:{self.children} props:{self.props}"
 
